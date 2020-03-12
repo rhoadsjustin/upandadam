@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { H1, Content } from 'native-base';
 import Leaderboard from 'react-native-leaderboard';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
   }
@@ -27,6 +27,10 @@ export default function LeaderboardScreen() {
           data={data}
           sortBy='highScore' 
           labelBy='userName'/>
+
+        <View>
+            <Text>Current place: 24</Text>
+        </View>
         </View>
     );
 };

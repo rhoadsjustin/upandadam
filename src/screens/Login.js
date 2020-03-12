@@ -9,12 +9,13 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import Colors from '../assets/colors';
+import colors from '../assets/colors';
   const image = require('../assets/logoBlue.png');
 export default function Login({ navigation }) {
     const [value, onChangeText] = React.useState('Its the app');
     return (
     <SafeAreaView>
-    <View>
+    <View style={{ backgroundColor: colors.darkColor }}>
         <View>
         <Image source={ image } resizeMode="contain" style={{ width: 200, height: 200 }} />
         </View>
@@ -26,7 +27,7 @@ export default function Login({ navigation }) {
           </Text>
         </View>
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Login</Text>
+          <Text style={[styles.sectionTitle, { alignSelf: 'center' }]}>Login</Text>
           <Text style={styles.sectionDescription}>
             Email
           </Text>
