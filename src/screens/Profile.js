@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { ListItem, Left, Body, Thumbnail, Right, Content, Accordion } from 'native-base';
+import { View, Text, Image } from 'react-native';
+import { ListItem, Left, Body, Thumbnail, Right, Content, Accordion, H1 } from 'native-base';
 const dataArray = [
     { title: "Personal Stats", content: "Lorem ipsum dolor sit amet" },
     { title: "Goals", content: "Lorem ipsum dolor sit amet" },
@@ -8,22 +8,22 @@ const dataArray = [
 const adam = require('../assets/adamsFace.png');
 export default function Profile() {
     return (
-    <View>
+    <View style={{ padding: 40 }}>
+        <Left>
+          <Image source={ adam } />
+        </Left>
         <ListItem avatar>
-              <Left>
-                <Thumbnail source={{ adam }} />
-              </Left>
               <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
+                <H1>Adam Meadows</H1>
+                <Text note>Age: 28</Text>
+                <Text note>Height: 4' 11"</Text>
+                <Text note>Weight: 210</Text>
+                <Text note>Steps: 4,235</Text>
               </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
             </ListItem>
-            <Content padder>
+            {/* <Content padder>
           <Accordion dataArray={dataArray} expanded={0}/>
-        </Content>
+        </Content> */}
     </View>
     );
 }
