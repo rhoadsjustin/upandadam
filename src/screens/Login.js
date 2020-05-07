@@ -9,13 +9,13 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import Colors from '../assets/colors';
-import colors from '../assets/colors';
-  const image = require('../assets/logoBlue.png');
+
+const image = require('../assets/logoBlue.png');
 export default function Login({ navigation }) {
     const [value, onChangeText] = React.useState('Its the app');
     return (
     <SafeAreaView>
-    <View style={{ backgroundColor: colors.darkColor }}>
+    <View>
         <View>
         <Image source={ image } resizeMode="contain" style={{ width: 200, height: 200 }} />
         </View>
@@ -65,15 +65,9 @@ export default function Login({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    scrollView: {
-      backgroundColor: Colors.lighter,
-    },
     engine: {
       position: 'absolute',
       right: 0,
-    },
-    body: {
-      backgroundColor: Colors.white,
     },
     sectionContainer: {
       marginTop: 32,
@@ -82,19 +76,19 @@ const styles = StyleSheet.create({
     sectionTitle: {
       fontSize: 24,
       fontWeight: '600',
-      color: Colors.black,
+      color: Colors.white,
     },
     sectionDescription: {
       marginTop: 8,
       fontSize: 18,
       fontWeight: '400',
-      color: Colors.dark,
+      color: Colors.white,
     },
     highlight: {
       fontWeight: '700',
     },
     footer: {
-      color: Colors.dark,
+      color: Colors.white,
       fontSize: 12,
       fontWeight: '600',
       padding: 4,

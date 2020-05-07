@@ -16,20 +16,34 @@ import {
 } from 'react-native';
 import
   Colors from './src/assets/colors';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TextInput } from 'react-native-gesture-handler';
 import Login from './src/screens/Login';
 import LeaderboardScreen from './src/screens/Leaderboard';
 import Profile from './src/screens/Profile';
+import TabBar from './src/components/TabBar';
+import colors from './src/assets/colors';
+import { Provider } from 'react-redux';
+import { initStore } from './src/store/reduxStore';
 
+const store = initStore();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
+const adamTheme = {
+darK: true,
+colors: {
+    primary: colors.blue,
+    background: colors.black,
+    card: colors.darkColor,
+    text: colors.white,
+    border: colors.blue,
+}
+};
 function Home() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator tabBarOptions={{ inactiveBackgroundColor: colors.black, activeBackgroundColor: colors.blue, activeTintColor: colors.white, inactiveTintColor: colors.white}}>
       <Tab.Screen name="Leaderboard" component={LeaderboardScreen} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
@@ -38,12 +52,14 @@ function Home() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Login" component={ Login } />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={ store }>
+      <NavigationContainer theme={ adamTheme }>
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Login" component={ Login } />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

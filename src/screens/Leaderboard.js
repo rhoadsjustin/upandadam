@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { H1, Content } from 'native-base';
+import { H1, Card, CardItem, Body, Left, Thumbnail } from 'native-base';
 import Leaderboard from 'react-native-leaderboard';
 import { View, Text } from 'react-native';
+import colors from '../assets/colors';
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
   }
@@ -20,16 +21,29 @@ export default function LeaderboardScreen() {
     ]);
     return (
         <View>
-            <View style={{ padding: 20, alignSelf: 'center' }}>
+            <View style={{ padding: 20, alignSelf: 'center', flex: 1 }}>
             <H1>Live Challenge Leaderboard</H1>
             </View>
         <Leaderboard
           data={data}
           sortBy='highScore' 
-          labelBy='userName'/>
+          labelBy='userName'
+           oddRowColor={ colors.blue }
+           evenRowColor={ colors.white }
+          />
 
         <View>
-            <Text>Current place: 24</Text>
+        <Card style={{ alignSelf: 'center', width: 300, marginTop: 100 }}>
+            <CardItem>
+              <Left>
+                <Thumbnail source={adam} />
+                <Body>
+                  <Text>Quarantine Adam</Text>
+                  <Text note>Crushing It</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            </Card> 
         </View>
         </View>
     );
