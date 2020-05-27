@@ -27,6 +27,7 @@ import TabBar from './src/components/TabBar';
 import colors from './src/assets/colors';
 import { Provider } from 'react-redux';
 import { initStore } from './src/store/reduxStore';
+import { SignUp } from './src/screens/SignUp';
 
 const store = initStore();
 const Stack = createStackNavigator();
@@ -35,7 +36,7 @@ const adamTheme = {
 darK: true,
 colors: {
     primary: colors.blue,
-    background: colors.black,
+    background: colors.darkColor,
     card: colors.darkColor,
     text: colors.white,
     border: colors.blue,
@@ -43,7 +44,7 @@ colors: {
 };
 function Home() {
   return (
-    <Tab.Navigator tabBarOptions={{ inactiveBackgroundColor: colors.black, activeBackgroundColor: colors.blue, activeTintColor: colors.white, inactiveTintColor: colors.white}}>
+    <Tab.Navigator tabBarOptions={{ inactiveBackgroundColor: colors.darkColor, activeBackgroundColor: colors.blue, activeTintColor: colors.white, inactiveTintColor: colors.white}}>
       <Tab.Screen name="Leaderboard" component={LeaderboardScreen} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
@@ -57,6 +58,7 @@ export default function App() {
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Login" component={ Login } />
+          <Stack.Screen name="SignUp" component={ SignUp } />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
@@ -93,7 +95,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   footer: {
-    color: Colors.dark,
+    color: Colors.darkColor,
     fontSize: 12,
     fontWeight: '600',
     padding: 4,

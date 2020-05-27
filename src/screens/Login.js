@@ -58,13 +58,20 @@ export default function Login({ navigation }) {
             color="white"
           />
         </View>
+        <View style={[{backgroundColor: "#00ADD0", marginHorizontal: 120, borderRadius: 20 }, styles.sectionContainer]}>
+          <Button
+            onPress={ () => navigation.navigate('SignUp') }
+            title="Sign-Up"
+            color="white"
+          />
+        </View>
       </View>
     </View>
   </SafeAreaView>
     );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     engine: {
       position: 'absolute',
       right: 0,
